@@ -60,6 +60,10 @@ int main(int argc, char const *argv[])
     {
         memset(DataToSent,'\0',sizeof(DataToSent));
 
+        valread = read( sock , buffer, 1024);
+
+        printf("%s\n",buffer );
+
         cout << "Enter number " << endl;
 
         int j ;
@@ -68,11 +72,8 @@ int main(int argc, char const *argv[])
 
         cout << "Sending ... " << DataToSent << " to server " << endl; 
         send(sock , DataToSent , strlen(DataToSent) , 0 );
-        
-        valread = read( sock , buffer, 1024);
-
         //cout << "Receiving ... "<< buffer < " from server " << endl;
-        printf("%s\n",buffer );
+    
         i++;
     }
 
